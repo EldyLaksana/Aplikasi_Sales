@@ -12,11 +12,6 @@
                 margin: 0 auto;
             }
         }
-
-        #tokoChart {
-            width: 200px;
-            height: 100px;
-        }
     </style>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -36,38 +31,18 @@
                 <a href="/toko/create" type="button" class="btn btn-primary"><i class="fa-solid fa-shop"></i> Toko</a>
             </div>
         </div>
-        <div class="container mt-2">
-            <div class="row gap-4">
-                <div class="card kartu text-center text-bg-success ">
-                    <div class="card-body">
-                        <i class="fa-solid fa-store fa-2xl mb-3 mt-4"></i>
-                        <hr>
-                        <h5 class="card-text mt-3">Toko Prospek</h5>
-                        <h5 class="card-text">{{ $prospek }}</h5>
-                    </div>
-                </div>
-                {{-- <div class="card kartu text-center text-bg-danger ">
-                    <div class="card-body">
-                        <i class="fa-solid fa-store-slash fa-2xl mb-3 mt-4"></i>
-                        <hr>
-                        <h5 class="card-text mt-3">Toko Tidak Prospek</h5>
-                        <h5 class="card-text">{{ $tidakProspek }}</h5>
-                    </div>
-                </div> --}}
-            </div>
 
-            <div class="container mt-5 gap-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="h2">Grafik Data Toko per Bulan</h1>
-                        <canvas id="tokoChart"></canvas>
-                    </div>
+        <div class="container mt-5 gap-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h1 class="h2">Grafik Toko Prospek per Bulan</h1>
+                    <canvas id="tokoChart"></canvas>
                 </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h1 class="h2">Grafik Toko per Kecamatan</h1>
-                        <canvas id="kecamatanChart"></canvas>
-                    </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h1 class="h2">Grafik Toko Prospek per Kecamatan</h1>
+                    <canvas id="kecamatanChart"></canvas>
                 </div>
             </div>
         </div>

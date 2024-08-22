@@ -7,6 +7,9 @@
     <section class="section">
         <div class="card mb-3">
             <div class="card-header gap-2 d-grid d-lg-flex justify-content-lg-end">
+                <a href="https://www.google.com/maps" class="btn btn-primary" target="_blank"><i
+                        class="fa-solid fa-map-location-dot"></i>
+                    Google Maps</a>
                 <a href="/toko" type="button" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
             </div>
             <form action="/toko" method="post" enctype="multipart/form-data">

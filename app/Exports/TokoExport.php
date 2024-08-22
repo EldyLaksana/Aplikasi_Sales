@@ -37,7 +37,11 @@ class TokoExport implements FromCollection, WithHeadings, WithMapping, WithDrawi
         }
 
         if (!empty($this->filters['sales'])) {
-            $query->where('user_id', $this->filters['sales']);
+            $query->where('sales_id', $this->filters['sales']);
+        } else {
+            if (auth()->user()->isAdmin == 0) {
+                $query->where('sales_id', auth()->user()->id);
+            }
         }
 
         $this->filteredToko = $query->get();
@@ -103,7 +107,7 @@ class TokoExport implements FromCollection, WithHeadings, WithMapping, WithDrawi
 
         // Mengatur tinggi semua baris data yang dimulai dari baris ke-4
         for ($i = 4; $i <= $this->filteredToko->count() + 3; $i++) {
-            $sheet->getRowDimension($i)->setRowHeight(50); // Set tinggi untuk setiap baris data
+            $sheet->getRowDimension($i)->setRowHeight(60); // Set tinggi untuk setiap baris data
         }
 
         // Mengatur lebar kolom
@@ -152,8 +156,8 @@ class TokoExport implements FromCollection, WithHeadings, WithMapping, WithDrawi
                 $drawing->setName($toko->toko);
                 $drawing->setDescription($toko->toko);
                 $drawing->setPath(public_path('storage/' . $toko->foto));
-                $drawing->setHeight(100);
-                $drawing->setWidth(100);
+                $drawing->setHeight(60);
+                $drawing->setWidth(30);
                 $drawing->setResizeProportional(false);
                 $drawing->setCoordinates('H' . ($index + 4)); // Mulai dari baris ke-4 karena judul dan header
                 $drawings[] = $drawing;

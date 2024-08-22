@@ -71,11 +71,11 @@
                                         aria-hidden="true"></i></button>
                             </div>
                         </div>
-                        <div class="col-lg-2 mb-3">
+                        {{-- <div class="col-lg-2 mb-3">
                             <a href="{{ route('toko.export', request()->all()) }}" class="btn btn-success" target="_blank">
                                 <i class="fa-solid fa-file-export"></i> Ekspor Data
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </form>
             </div>
@@ -134,6 +134,13 @@
                     <div class="d-flex justify-content-end">
                         {{ $tokos->links() }}
                     </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-grid d-lg-flex justify-content-lg-end">
+                    <a href="{{ route('toko.export', request()->all()) }}" class="btn btn-primary" target="_blank">
+                        <i class="fa-solid fa-file-export"></i> Ekspor Data
+                    </a>
                 </div>
             </div>
         </div>
