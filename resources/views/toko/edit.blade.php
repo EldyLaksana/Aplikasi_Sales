@@ -68,15 +68,8 @@
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="status" class="form-label">Status :</label>
-                        <select class="form-select" name="status" id="status">
-                            {{-- @if (old('status') == 'Prospek')
-                                <option value="Prospek">Prospek</option>
-                            @elseif(old('status') == 'Tidak Prospek')
-                                <option value="Tidak Prospek">Tidak Prospek</option>
-                            @else
-                                <option value="Prospek">Prospek</option>
-                                <option value="Tidak Prospek">Tidak Prospek</option>
-                            @endif --}}
+                        <select class="form-select" name="status" id="status"
+                            {{ $toko->status == 'Prospek' ? 'disabled' : '' }}>
                             <option value="Prospek" {{ $toko->status == 'Prospek' ? 'selected' : '' }}>Prospek</option>
                             <option value="Tidak Prospek" {{ $toko->status == 'Tidak Prospek' ? 'selected' : '' }}>Tidak
                                 Prospek</option>

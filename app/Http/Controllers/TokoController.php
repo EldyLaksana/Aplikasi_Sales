@@ -48,12 +48,17 @@ class TokoController extends Controller
             $toko->where('status', request('status'));
         }
 
+        if (request('kecamatan')) {
+            $toko->where('kecamatan_id', request('kecamatan'));
+        }
+
         // Dapatkan data toko terbaru dan paginate hasilnya
-        $toko = $toko->latest()->paginate(15);
+        $toko = $toko->latest();
 
         return view('toko.index', [
-            'tokos' => $toko,
+            'tokos' => $toko->paginate(10),
             'users' => User::where('isAdmin', 0)->get(),
+            'kecamatans' => Kecamatan::all(),
         ]);
     }
 
@@ -144,6 +149,10 @@ class TokoController extends Controller
             }
 
             $validateData['foto'] = $request->file('foto')->store('foto');
+        }
+
+        if ($toko->status == 'Tidak Prospek' && $request->status == 'Prospek') {
+            $validateData['created_at'] = now();
         }
 
         Toko::where('id', $toko->id)->update($validateData);
