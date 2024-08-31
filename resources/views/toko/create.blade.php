@@ -92,13 +92,15 @@
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="foto" class="form-label">Foto :</label>
+                        <small class="text-danger d-block mb-2">*Catatan: Foto harus menggunakan aplikasi Timestamp
+                            Camera</small>
                         <img src="/img/store.png" class="foto_preview img-fluid mb-3" width="200" height="200"
                             style="display: block">
                         <input class="form-control @error('foto') is-invalid @enderror" type="file" id="foto"
                             name="foto" onchange="previewFoto()">
                         @error('foto')
                             <div class="invalid-feedback">
-                                File tidak boleh lebih dari 2 mb
+                                File tidak boleh lebih dari 5 mb
                             </div>
                         @enderror
                     </div>

@@ -35,7 +35,7 @@
             <div class="card-body">
                 <form method="GET" action="{{ route('toko.index') }}">
                     <div class="row">
-                        <div class="col-lg-3 mb-3">
+                        <div class="col-lg-3 mb-2">
                             {{-- <div class="input-group"> --}}
                             <input type="text" class="form-control" placeholder="Pilih rentang tanggal..."
                                 name="date_range" id="date_range" value="{{ request('date_range') }}">
@@ -44,7 +44,7 @@
                             {{-- </div> --}}
                         </div>
                         @if (auth()->user()->isAdmin)
-                            <div class="col-lg-2 mb-3">
+                            <div class="col-lg-2 mb-2">
                                 {{-- <div class="input-group"> --}}
                                 <select class="form-select" name="sales" id="sales">
                                     <option selected value="">Sales...</option>
@@ -61,7 +61,7 @@
                                 {{-- </div> --}}
                             </div>
                         @endif
-                        <div class="col-lg-2 mb-3">
+                        <div class="col-lg-2 mb-2">
                             {{-- <div class="input-group"> --}}
                             <select class="form-select" name="status" id="status">
                                 <option selected value="">Pilih Status...</option>
@@ -74,28 +74,14 @@
                                         aria-hidden="true"></i></button> --}}
                             {{-- </div> --}}
                         </div>
-                        <div class="col-lg-2 mb-3">
-                            {{-- <div class="input-group"> --}}
-                            <select class="form-select" name="kecamatan" id="kecamatan">
-                                <option selected value="">Kecamatan...</option>
-                                @foreach ($kecamatans as $kecamatan)
-                                    {{-- @if (old('kecamatan_id') == $kecamatan->id)
-                                            <option value="{{ $kecamatan->id }}" selected>{{ $kecamatan->kecamatan }}
-                                            </option>
-                                        @else
-                                            <option value="{{ $kecamatan->id }}">{{ $kecamatan->kecamatan }}</option>
-                                        @endif --}}
-                                    <option value="{{ $kecamatan->id }}"
-                                        {{ request('kecamatan') == $kecamatan->id ? 'selected' : '' }}>
-                                        {{ $kecamatan->kecamatan }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            {{-- <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"
+                        <div class="col-lg-2 mb-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Toko ..." name="toko"
+                                    value="{{ request('toko') }}">
+                                {{-- <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"
                                         aria-hidden="true"></i></button> --}}
-                            {{-- </div> --}}
+                            </div>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col-lg-3 gap-2 d-grid d-lg-flex">
@@ -149,12 +135,12 @@
                                             style="width: 150px; height: auto;">
                                     </td>
                                     <td>
-                                        {{-- @if ($toko->created_at->diffInDays(now()) < 1 || auth()->user()->isAdmin == 1) --}}
-                                        <a href="toko/{{ $toko->id }}/edit" class="badge bg-warning"
-                                            style="text-decoration: none" title="">
-                                            <i class="fa-solid fa-pen"></i> Edit
-                                        </a>
-                                        {{-- @endif --}}
+                                        @if ($toko->created_at->diffInDays(now()) < 1 || auth()->user()->isAdmin == 1)
+                                            <a href="toko/{{ $toko->id }}/edit" class="badge bg-warning"
+                                                style="text-decoration: none" title="">
+                                                <i class="fa-solid fa-pen"></i> Edit
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

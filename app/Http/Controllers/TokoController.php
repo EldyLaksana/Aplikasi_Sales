@@ -48,8 +48,9 @@ class TokoController extends Controller
             $toko->where('status', request('status'));
         }
 
-        if (request('kecamatan')) {
-            $toko->where('kecamatan_id', request('kecamatan'));
+        if (request('toko')) {
+            // $toko->where('toko', request('toko'));
+            $toko->where('tokos.toko', 'like', '%' . request('toko') . '%');
         }
 
         // Dapatkan data toko terbaru dan paginate hasilnya
