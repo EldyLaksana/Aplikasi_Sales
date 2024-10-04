@@ -130,7 +130,7 @@ class TokoController extends Controller
      */
     public function update(Request $request, Toko $toko)
     {
-        return ($request);
+        // return ($request);
         $rules = [
             'sales_id' => '',
             'toko' => 'required',
