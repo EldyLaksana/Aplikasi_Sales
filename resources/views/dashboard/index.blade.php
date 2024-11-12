@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="container mt-5 gap-4">
+        {{-- <div class="container mt-5 gap-4">
             <div class="card mb-3">
                 <div class="card-body">
                     <h1 class="h2">Grafik Toko Prospek per Bulan</h1>
@@ -43,6 +43,27 @@
                 <div class="card-body">
                     <h1 class="h2">Grafik Toko Prospek per Kecamatan</h1>
                     <canvas id="kecamatanChart"></canvas>
+                </div>
+            </div>
+        </div> --}}
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h1 class="h2">Grafik Toko Prospek per Bulan</h1>
+                            <canvas id="tokoChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h1 class="h2">Grafik Toko Prospek per Kecamatan</h1>
+                            <canvas id="kecamatanChart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
